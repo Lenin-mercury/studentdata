@@ -1,0 +1,118 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.52);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    position: relative;
+    width: 750px;
+    background: white;
+    height: min-content;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    border-radius: 5px;
+    padding: 16px;
+    padding-bottom: 45px;
+    box-shadow: 0rem 0rem 3rem 1rem rgba($color: #000000, $alpha: 0.2);
+
+    .fas {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 25px;
+      color: grey;
+      padding: 10px;
+
+      &:hover {
+        cursor: pointer;
+        color: black;
+      }
+    }
+    &--header {
+      flex: 0 0 100%;
+      text-align: center;
+    }
+
+    &--left {
+      flex: 0 0 25%;
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+
+      &-imgcontainer {
+        height: 200px;
+        width: 200px;
+        padding-bottom: 50px;
+      }
+
+      &-img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
+
+      &-name {
+        font-size: 20px;
+        text-align: center;
+        padding-bottom: 15px;
+      }
+
+      span {
+        font-size: 18px;
+        text-align: center;
+        padding-bottom: 15px;
+      }
+
+      &-social {
+        display: flex;
+        justify-content: space-around;
+
+        .fab {
+          font-size: 20px;
+          color: grey;
+
+          &:hover {
+            cursor: pointer;
+            color: goldenrod;
+          }
+        }
+      }
+    }
+
+    &--center{
+      border-left: 1px solid lightgrey;
+    }
+
+    &--right {
+      flex: 1;
+      padding: 10px;
+
+      &-header {
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      &-details {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+
+        &-container {
+          display: flex;
+          flex-direction: column;
+          padding: 5px;
+        }
+        .address {
+          flex: 0 0 100%;
+        }
+      }
+    }
+  }
+}

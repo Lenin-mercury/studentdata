@@ -1,0 +1,29 @@
+.studentlist {
+  text-align: center;
+  padding: 0 50px;
+
+  @media only screen and (max-width: 601px) {
+    padding: 0;
+  }
+
+  &__tablecontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__table{
+      &--span {
+        color: royalblue;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    .fas{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+  }
+}

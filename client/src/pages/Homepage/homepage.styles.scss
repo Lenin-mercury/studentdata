@@ -1,0 +1,36 @@
+.homepage {
+  position: relative;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: lightblue;
+    border: 1px solid lightgreen;
+    font-size: 18px;
+    padding: 0 10px;
+
+    &__login,
+    &__student {
+      &--span:hover {
+        cursor: pointer;
+      }
+    }
+
+    &__student {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &--span {
+        //   height: 100%;
+        padding-left: 8px;
+      }
+    }
+    .active {
+      background: lightcyan;
+    }
+  }
+
+
+}
