@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import "./Register.styles.scss";
 import { createStudent, updateStudent } from '../redux/action-creators'
 import { useDispatch } from "react-redux"
+import {toast} from 'react-toastify'
 
 interface FormData {
+  _id?: string
   email: string
   firstname: string
   lastname: string
@@ -36,9 +38,14 @@ const Register = (props: any) => {
     props.formData && setFormData(props.formData)
   }, [props.formData])
 
+  if (formData && formData.dob) {
+    const todayDate = new Date(formData.dob).toISOString().slice(0, 10);
+    formData.dob = todayDate.toString();
+  }
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(formData)
+    if (new Date(formData.dob) > new Date()) return toast.error("Date of Birth is greater than today.")
     props.isEdit ? dispatch(updateStudent(formData)) : dispatch(createStudent(formData))
     props.setIsEdit(false)
     setFormData({

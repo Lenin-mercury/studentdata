@@ -42,8 +42,8 @@ const initialState = {
       // Edit Student
       //
       case ActionTypeStudent.EDIT_STUDENT:
-          const editedStudents = state.students.map((student: { id: any }) => {
-              if (student.id === action.payload.id) {
+          const editedStudents = state.students.map((student: { _id: any }) => {
+              if (student._id === action.payload._id) {
                   return student = action.payload
               } else {
                 return student

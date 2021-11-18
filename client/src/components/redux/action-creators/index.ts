@@ -6,6 +6,7 @@ import {toast} from "react-toastify"
 
 
 interface studentData{
+    _id?: FormDataEntryValue
     firstname: FormDataEntryValue
     lastname: FormDataEntryValue
     email: FormDataEntryValue
@@ -64,7 +65,9 @@ export const deleteStudent = (id:string) => async(dispatch:Dispatch<StudentActio
 }
 export const updateStudent = (student: studentData) => async(dispatch:Dispatch<StudentAction>) => {
     try {
+        console.log(student)
         const body = {
+            "_id":student._id,
             "email": student.email,
             "firstname":student.firstname,
             "lastname":student.lastname,
