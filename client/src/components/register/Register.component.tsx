@@ -45,7 +45,7 @@ const Register = (props: any) => {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (new Date(formData.dob) > new Date()) return toast.error("Date of Birth is greater than today.")
+    if (new Date(formData.dob) > new Date()) return toast.error("Date of Birth is greater than today")
     props.isEdit ? dispatch(updateStudent(formData)) : dispatch(createStudent(formData))
     props.setIsEdit(false)
     setFormData({
@@ -121,13 +121,14 @@ const Register = (props: any) => {
         name="gender"
         id="male"
         value="male"
+        checked={formData && formData.gender ? formData.gender === 'male': false}
         onChange={(e) => {
           setFormData({ ...formData, [option.name]: e.target.value })
         }} />
       </div>
       <div className="register__radiogroup--radio">
         <label htmlFor="female">Female</label>
-        <input type="radio" name="gender" id="female" value="female" onChange={(e) => {
+        <input type="radio" name="gender" id="female" value="female" checked={formData && formData.gender ? formData.gender === 'female': false} onChange={(e) => {
           setFormData({ ...formData, [option.name]: e.target.value })
         }} />
       </div>
