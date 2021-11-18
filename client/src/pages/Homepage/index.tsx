@@ -26,7 +26,7 @@ const Homepage = () => {
         </div>
     </section>
     const _renderMain = () => <section className="main">
-        {tab === "addstudent" ? <Register formData={studentData} isEdit={isEdit} /> :
+        {tab === "addstudent" ? <Register formData={studentData} isEdit={isEdit} setIsEdit={setIsEdit}/> :
             <Studentlist setOpenPopup={setOpenPopup} setIsEdit={setIsEdit} setStudentData={setStudentData} setTab={setTab}
             />}
     </section>

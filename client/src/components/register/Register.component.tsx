@@ -7,7 +7,7 @@ interface FormData {
   email: string
   firstname: string
   lastname: string
-  dateofbirth: string
+  dob: string
   address: string
   gender: string
 }
@@ -27,7 +27,7 @@ const Register = (props: any) => {
     email: "",
     firstname: "",
     lastname: "",
-    dateofbirth: "",
+    dob: "",
     address: "",
     gender: "male",
   })
@@ -40,11 +40,12 @@ const Register = (props: any) => {
     e.preventDefault()
     console.log(formData)
     props.isEdit ? dispatch(updateStudent(formData)) : dispatch(createStudent(formData))
+    props.setIsEdit(false)
     setFormData({
       email: "",
       firstname: "",
       lastname: "",
-      dateofbirth: "",
+      dob: "",
       address: "",
       gender: "",
     })
@@ -55,7 +56,7 @@ const Register = (props: any) => {
       email: "",
       firstname: "",
       lastname: "",
-      dateofbirth: "",
+      dob: "",
       address: "",
       gender: "",
     })
@@ -73,6 +74,24 @@ const Register = (props: any) => {
         onChange={(e) => {
           setFormData({ ...formData, [option.name]: e.target.value })
         }}
+        required
+      />
+    </div>
+  </>
+
+  const _renderDateInput = (option: OptionValue) => <>
+    <div className="register__inputgroup">
+      <label htmlFor={option.name} className="register__label">{option.label} </label>
+      <input
+        type="date"
+        className="register__input"
+        name={option.name}
+        placeholder={option.placeholder}
+        value={option.value}
+        onChange={(e) => {
+          setFormData({ ...formData, [option.name]: e.target.value })
+        }}
+        required
       />
     </div>
   </>
@@ -80,7 +99,7 @@ const Register = (props: any) => {
   const _renderAddressInput = (option: OptionValue) => <>
     <div className="register__inputgroup">
       <label htmlFor={option.name} className="register__label">{option.label}</label>
-      <textarea name={option.name} className="register__input" value={option.value}
+      <textarea name={option.name} className="register__input" value={option.value} required
         onChange={(e) => {
           setFormData({ ...formData, [option.name]: e.target.value })
         }} />
@@ -122,7 +141,7 @@ const Register = (props: any) => {
         <h1 className="register__header">Add Student</h1>
         {_renderInput({ label: "First Name", name: "firstname", placeholder: "Your First Name", value: formData.firstname })}
         {_renderInput({ label: "Last Name", name: "lastname", placeholder: "Your Last Name", value: formData.lastname })}
-        {_renderInput({ label: "Date of birth", name: "dateofbirth", placeholder: "Your Last Name", type: "date", value: formData.dateofbirth })}
+        {_renderDateInput({ label: "Date of birth", name: "dob", placeholder: "Your Last Name", value: formData.dob })}
         {_renderInput({ label: "Email", name: "email", placeholder: "emailexample@test.com", value: formData.email })}
         {_renderAddressInput({ label: "Address", name: "address", value: formData.address })}
         {_renderGenderInput({ name: "gender", value: formData.gender, label: "gender" })}

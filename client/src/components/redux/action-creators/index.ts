@@ -9,7 +9,7 @@ interface studentData{
     firstname: FormDataEntryValue
     lastname: FormDataEntryValue
     email: FormDataEntryValue
-    dateofbirth: FormDataEntryValue
+    dob: FormDataEntryValue
     address: FormDataEntryValue
     gender: FormDataEntryValue
 }
@@ -27,7 +27,7 @@ export const createStudent = (student: studentData) => async(dispatch:Dispatch<S
             "email": student.email,
             "firstname":student.firstname,
             "lastname":student.lastname,
-            "dob":student.dateofbirth,
+            "dob":student.dob,
             "address":student.address,
             "gender":student.gender,
         }
@@ -68,7 +68,7 @@ export const updateStudent = (student: studentData) => async(dispatch:Dispatch<S
             "email": student.email,
             "firstname":student.firstname,
             "lastname":student.lastname,
-            "dob":student.dateofbirth,
+            "dob":student.dob,
             "address":student.address,
             "gender":student.gender,
         }
