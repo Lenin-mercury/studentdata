@@ -3,8 +3,8 @@ import './popup.styles.scss'
 
 const Popup = (props: any) => {
     if (props.options && props.options.dob) {
-        var todayDate = new Date(props.options.dob).toISOString().slice(0, 10);
-        props.options.dob = todayDate.toString();
+        var formattedDate = new Date(props.options.dob).toISOString().slice(0, 10);
+        props.options.dob = formattedDate.toString();
       }
     const _renderPopupheader = () => <h1 className="popup__content--header">Student Details</h1>
     const _renderCloseButton = () => <i className="fas fa-times" onClick={() => props.setOpenPopup(false)}></i>

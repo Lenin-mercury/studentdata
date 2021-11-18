@@ -39,8 +39,8 @@ const Register = (props: any) => {
   }, [props.formData])
 
   if (formData && formData.dob) {
-    const todayDate = new Date(formData.dob).toISOString().slice(0, 10);
-    formData.dob = todayDate.toString();
+    const formattedDate = new Date(formData.dob).toISOString().slice(0, 10);
+    formData.dob = formattedDate.toString();
   }
 
   const onSubmit = (e: React.FormEvent) => {
