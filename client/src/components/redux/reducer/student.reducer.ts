@@ -62,7 +62,7 @@ const initialState = {
       // Delete Student
       //
       case ActionTypeStudent.DELETE_STUDENT:
-        const filterCust = state.students.filter((student:{id: any}) => student.id !== action.payload)
+        const filterCust = state.students.filter((student:{_id: any}) => student._id !== action.payload)
         modifiedState = {
             ...state,
           loading: false,
