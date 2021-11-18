@@ -21,6 +21,9 @@
     padding: 16px;
     padding-bottom: 45px;
     box-shadow: 0rem 0rem 3rem 1rem rgba($color: #000000, $alpha: 0.2);
+    @media print {
+      border: 1px solid black;
+    }
 
     .fas {
       position: absolute;
@@ -29,6 +32,10 @@
       font-size: 25px;
       color: grey;
       padding: 10px;
+
+      @media print {
+        display: none;
+      }
 
       &:hover {
         cursor: pointer;
@@ -86,13 +93,21 @@
       }
     }
 
-    &--center{
+    &--center {
       border-left: 1px solid lightgrey;
     }
 
     &--right {
       flex: 1;
       padding: 10px;
+
+      .btn-info {
+        float: right;
+        margin-top: 20px;
+        @media print {
+          display: none;
+        }
+      }
 
       &-header {
         font-size: 24px;
@@ -109,6 +124,7 @@
           flex-direction: column;
           padding: 5px;
         }
+
         .address {
           flex: 0 0 100%;
         }

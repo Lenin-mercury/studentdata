@@ -48,6 +48,7 @@ const Popup = (props: any) => {
                 <span>{props.options && props.options.address}</span>
             </div>
         </div>
+            <button onClick={() => window.print()} className="btn btn-info"> Print </button>
     </div>
 
     const _renderPopupContentCenter = () => <div className="popup__content--center"></div>
@@ -58,6 +59,7 @@ const Popup = (props: any) => {
         {_renderPopupContentCenter()}
         {_renderPopupContentRight()}
         {_renderCloseButton()}
+
     </div>
     return (
         <section className="popup">

@@ -8,29 +8,34 @@
     border: 1px solid lightgreen;
     font-size: 18px;
     padding: 0 10px;
-
-    &__login,
-    &__student {
-      &--span:hover {
-        cursor: pointer;
-      }
+    height: 45px;
+    &__login--span{
+      padding: 5px;
+      margin-left: 8px;
+      font-size: 20px;
+      color: black;
     }
-
     &__student {
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-
       &--span {
-        //   height: 100%;
-        padding-left: 8px;
+        padding: 5px;
+        border-radius: 3px;
+        margin-left: 8px;
+        font-size: 20px;
+        color: grey;
+        &:hover {
+          cursor: pointer;
+          color: black;
+        }
       }
     }
     .active {
       background: lightcyan;
+      font-weight: 700;
+      color: black;
     }
   }
-
-
 }

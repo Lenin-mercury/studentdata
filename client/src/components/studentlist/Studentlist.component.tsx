@@ -15,6 +15,7 @@ const Studentlist = (props: any) => {
     return (
         <div className="studentlist">
             <h2 className="studentlist__header">Student List</h2>
+
             <section className="studentlist__tablecontainer table-responsive">
                 <table className="studentlist__table table table-striped table-hover">
                     <thead>
@@ -58,7 +59,6 @@ const Studentlist = (props: any) => {
                             )
                         })}
                     </tbody>
-
                 </table>
             </section>
         </div>
