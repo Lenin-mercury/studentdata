@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import "./Register.styles.scss";
 import { createStudent, updateStudent } from '../redux/action-creators'
 import { useDispatch } from "react-redux"
+import {toast} from 'react-toastify'
 
 interface FormData {
+  _id?: string
   email: string
   firstname: string
   lastname: string
@@ -36,9 +38,14 @@ const Register = (props: any) => {
     props.formData && setFormData(props.formData)
   }, [props.formData])
 
+  if (formData && formData.dob) {
+    const formattedDate = new Date(formData.dob).toISOString().slice(0, 10);
+    formData.dob = formattedDate.toString();
+  }
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(formData)
+    if (new Date(formData.dob) > new Date()) return toast.error("Date of Birth is greater than today")
     props.isEdit ? dispatch(updateStudent(formData)) : dispatch(createStudent(formData))
     props.setIsEdit(false)
     setFormData({
@@ -114,13 +121,14 @@ const Register = (props: any) => {
         name="gender"
         id="male"
         value="male"
+        checked={formData && formData.gender ? formData.gender === 'male': false}
         onChange={(e) => {
           setFormData({ ...formData, [option.name]: e.target.value })
         }} />
       </div>
       <div className="register__radiogroup--radio">
         <label htmlFor="female">Female</label>
-        <input type="radio" name="gender" id="female" value="female" onChange={(e) => {
+        <input type="radio" name="gender" id="female" value="female" checked={formData && formData.gender ? formData.gender === 'female': false} onChange={(e) => {
           setFormData({ ...formData, [option.name]: e.target.value })
         }} />
       </div>
